@@ -19,7 +19,7 @@ export default class ProductCard extends React.Component {
                         <br/>
                         <span className="card-price">{ this.props.data.price }</span>
                         <div className="set-card-margin-bottom">
-                            <Button type="primary" className="pull-right">Agregar</Button>
+                            <Button type="success" className="pull-right falabella-btn">Agregar</Button>
                         </div>
                     </div>
                 </Card>
