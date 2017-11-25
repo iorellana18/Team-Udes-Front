@@ -7340,16 +7340,6 @@ var Search = function (_React$Component) {
             var _this2 = this;
 
             this.state.strquery = this.hasWhiteSpace(this.state.value);
-            // if(localStorage.token == null){
-            //     //api from Falabella
-            //     this.state.strquery = this.hasWhiteSpace(this.state.value)
-            //     //http://www.falabella.com/falabella-cl/search/?Ntt=jeans&format=json
-            //     falabella({query : this.state.strquery}).then((res) => {
-            //         //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList); 
-            //     }).catch((res) => {
-            //         console.log('ERROR RESULT', res);
-            //     })
-            // }
             Object(__WEBPACK_IMPORTED_MODULE_3__services_index__["c" /* search */])({ query: this.state.strquery }).then(function (res) {
                 console.log('BUSQUEDA', res);
                 _this2.props.sendToNav(res.data);
@@ -7383,14 +7373,26 @@ var Search = function (_React$Component) {
             this.forceUpdate();
         }
     }, {
+        key: 'handleEnterKey',
+        value: function handleEnterKey(event) {
+            if (event.key == 'Enter') {
+                this.sendInformation(event);
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { align: 'center' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_element_react__["Input"], { placeholder: '\xBFQu\xE9 buscas?',
                     value: this.state.value,
                     onChange: this.onChange.bind(this, 'value'),
+                    onKeyPress: function onKeyPress(event) {
+                        return _this3.handleEnterKey(event);
+                    },
                     append: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_element_react__["Button"], { type: 'primary', icon: 'search', onClick: this.sendInformation.bind(this) }) })
             );
         }
@@ -9585,7 +9587,9 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_index__ = __webpack_require__(85);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9593,6 +9597,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -9618,17 +9623,21 @@ var Login = function (_React$Component) {
     _createClass(Login, [{
         key: 'onSubmit',
         value: function onSubmit(state) {
+            var _this2 = this;
+
             console.log('FORM', this.state.form);
-            Object(__WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* login */])(this.state.form).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_3__services_index__["a" /* login */])(this.state.form).then(function (res) {
                 console.log('LOGIN', res);
                 localStorage.setItem('token', res.data.token);
                 Object(__WEBPACK_IMPORTED_MODULE_1_element_react__["Message"])({
                     message: 'Bienvenido, te haz autentificado con exito.',
                     type: 'success'
                 });
+                _this2.props.close(true);
             }).catch(function (res) {
                 console.log('ERROR LOGIN', res);
                 __WEBPACK_IMPORTED_MODULE_1_element_react__["Message"].error('Error al intentar ingresar en tu cuenta.');
+                _this2.props.close(true);
             });
         }
     }, {
@@ -9636,6 +9645,11 @@ var Login = function (_React$Component) {
         value: function onChange(key, value) {
             this.state.form[key] = value;
             this.forceUpdate();
+        }
+    }, {
+        key: 'handleCancel',
+        value: function handleCancel() {
+            this.props.close(true);
         }
     }, {
         key: 'render',
@@ -9668,7 +9682,7 @@ var Login = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            null,
+                            { onClick: this.handleCancel.bind(this) },
                             'Cancel'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -9687,6 +9701,11 @@ var Login = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Login);
+
+
+Login.propTypes = {
+    close: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.func
+};
 
 /***/ }),
 /* 133 */
@@ -59267,6 +59286,11 @@ var Nav = function (_React$Component) {
             this.props.sendImageUpload(data);
         }
     }, {
+        key: 'handleLoginClose',
+        value: function handleLoginClose() {
+            this.setState({ loginVisible: false });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -59446,7 +59470,7 @@ var Nav = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_6_element_react__["Dialog"].Body,
                                     null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Login_Login__["a" /* default */], null)
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Login_Login__["a" /* default */], { close: this.handleLoginClose.bind(this) })
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -89305,6 +89329,11 @@ var ProductCard = function (_React$Component) {
     }
 
     _createClass(ProductCard, [{
+        key: 'handleButton',
+        value: function handleButton() {
+            window.location.replace('http://www.falabella.com/' + this.props.data.url);
+        }
+    }, {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -89340,8 +89369,12 @@ var ProductCard = function (_React$Component) {
                             { className: 'set-card-margin-bottom' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                                { type: 'success', className: 'pull-right falabella-btn', href: 'http://www.falabella.com/' + this.props.data.url },
-                                'Agregar'
+                                {
+                                    type: 'success',
+                                    className: 'pull-right',
+                                    onClick: this.handleButton()
+                                },
+                                'Ver'
                             )
                         )
                     )

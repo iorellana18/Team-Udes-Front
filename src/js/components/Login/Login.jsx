@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Button, Form, Message } from 'element-react';
+import PropTypes from 'prop-types';
 import { login } from '../../services/index'
 
 export default class Login extends React.Component {
@@ -21,14 +22,19 @@ export default class Login extends React.Component {
                 message: 'Bienvenido, te haz autentificado con exito.',
                 type: 'success'
               });
+            this.props.close(true)
         }).catch((res) => {
             console.log('ERROR LOGIN', res);
             Message.error('Error al intentar ingresar en tu cuenta.');
+            this.props.close(true);
         })
     }
     onChange(key, value) {
         this.state.form[key] = value;
         this.forceUpdate();
+    }
+    handleCancel() {
+        this.props.close(true)
     }
     render() {
         return (
@@ -50,8 +56,8 @@ export default class Login extends React.Component {
                         </Input>
                     </Form.Item>
                     <Form.Item>
-                        <Button>Cancel</Button>
-                        <Button type="success" onClick={this.onSubmit.bind(this)}>Entrar</Button>
+                        <Button onClick={ this.handleCancel.bind(this) }>Cancel</Button>
+                        <Button type="success" onClick={ this.onSubmit.bind(this) }>Entrar</Button>
                     </Form.Item>
                 </Form>
                 <br/>
@@ -59,3 +65,7 @@ export default class Login extends React.Component {
         );
     }
 }
+
+Login.propTypes = {
+    close: PropTypes.func,
+};
