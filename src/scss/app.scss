@@ -1,7 +1,44 @@
 @import "node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+$base-dark: rgba(51, 51, 51, 1);
+$base-green: rgba(209, 209, 209, 1);
+$base-txt: rgba(203,203,203,1);
+$nav-height: 3em;
+$nav-color: #bbb;
+$nav-background: #2e2e2e;
+.navbar-fixed {
+  position: fixed;
+  top: -($nav-height);
+}
+ul {
+  width: 100%;
+  color: $base-dark;
+  background: $nav-background;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+  text-align: center;
+  margin: 0;
+}
 
-.header-black {
-    background-color: rgba(51, 51, 51, 1);
-    height: 60px;
-    display: flex;
+ul li {
+ display: inline-block;
+ padding: 0 3em;
+ line-height: 3em;
+}
+
+ul li:hover {
+  background: $base-txt;
+}
+
+.changeSize{
+	
+font-size: 10px
+}
+.navbar{
+
+	justify-content: space-between; 
+
+}
+.navbar-dark{
+	background-color: #333;
 }
