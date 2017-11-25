@@ -4,6 +4,7 @@ import Search from './Search/Search'
 import Login from './Login/Login'
 import Register from './Register/Register'
 import ProductCard from './ProductCard/ProductCard'
+import ImageUpload from './ImageUpload/ImageUpload'
 import { Layout } from 'element-react';
 
 export default class Home extends React.Component {
@@ -56,6 +57,7 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Nav></Nav>
+                <ImageUpload></ImageUpload>
                 <h1>HOLA</h1>
                 <Search></Search>
                 <Login></Login>

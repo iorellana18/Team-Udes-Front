@@ -58621,8 +58621,9 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Login_Login__ = __webpack_require__(432);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Register_Register__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ProductCard_ProductCard__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_react__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_element_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ImageUpload_ImageUpload__ = __webpack_require__(449);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_react__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58630,6 +58631,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -58692,6 +58694,7 @@ var Home = function (_React$Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Nav_Nav__["a" /* default */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ImageUpload_ImageUpload__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'h1',
                     null,
@@ -58702,7 +58705,7 @@ var Home = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Register_Register__["a" /* default */], null),
                 this.state.aaa.bbb.map(function (item, index) {
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_6_element_react__["Layout"].Col,
+                        __WEBPACK_IMPORTED_MODULE_7_element_react__["Layout"].Col,
                         { span: '6', key: index },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__ProductCard_ProductCard__["a" /* default */], { data: item })
                     );
@@ -89572,6 +89575,113 @@ var ProductCard = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (ProductCard);
+
+/***/ }),
+/* 449 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var ImageUpload = function (_React$Component) {
+    _inherits(ImageUpload, _React$Component);
+
+    function ImageUpload(props) {
+        _classCallCheck(this, ImageUpload);
+
+        var _this = _possibleConstructorReturn(this, (ImageUpload.__proto__ || Object.getPrototypeOf(ImageUpload)).call(this, props));
+
+        _this.state = {
+            dialogVisible: false,
+            dialogImageUrl: '',
+            fileList: []
+        };
+        return _this;
+    }
+
+    _createClass(ImageUpload, [{
+        key: 'handleRemove',
+        value: function handleRemove(file, fileList) {
+            console.log(file, fileList);
+        }
+    }, {
+        key: 'handlePreview',
+        value: function handlePreview(file) {
+            console.log(file);
+        }
+    }, {
+        key: 'handleBeforeUpload',
+        value: function handleBeforeUpload(state) {
+            console.log('UPLOAD');
+        }
+    }, {
+        key: 'submitUpload',
+        value: function submitUpload() {
+            console.log('AAAA', this.state.fileList);
+            this.refs.upload.submit();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1_element_react__["Upload"],
+                    {
+                        className: 'upload-demo',
+                        ref: 'upload',
+                        action: '//jsonplaceholder.typicode.com/posts/',
+                        onPreview: function onPreview(file) {
+                            return _this2.handlePreview(file);
+                        },
+                        onRemove: function onRemove(file, fileList) {
+                            return _this2.handleRemove(file, fileList);
+                        },
+                        fileList: this.state.fileList,
+                        autoUpload: false,
+                        tip: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'el-upload__tip' },
+                            'Archivos jpg/png'
+                        ),
+                        trigger: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
+                            { size: 'small', type: 'primary' },
+                            'Selecciona la imagen'
+                        )
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
+                        { style: { marginLeft: '10px' }, size: 'small', type: 'success', onClick: function onClick() {
+                                return _this2.submitUpload();
+                            } },
+                        'Subir imagen'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ImageUpload;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (ImageUpload);
 
 /***/ })
 /******/ ]);
