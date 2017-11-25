@@ -7,10 +7,10 @@ let headers = {
     }
 };
 
-let base = 'https://ehackathon.usach.cl/api';
+let base = 'http://ehackathon.usach.cl/api';
 
 export const login = params => {
-    return axios.post(`${base}/login`, params, headers);
+    return axios.post(`${base}/login/`, params, headers);
 }
 
 export const register = params => {

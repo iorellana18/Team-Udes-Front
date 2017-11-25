@@ -10,16 +10,16 @@ export default class ProductCard extends React.Component {
         return (
             <div>
                 <Card>
-                    <img src={ this.props.data.img } className="center"/>
+                    <img src={ 'http://falabella.scene7.com/is/image/Falabella/' + this.props.data.productId + '?wid=249&hei=249&crop=0,0,0,0' } className="center"/>
                     <div style={{ padding: 14 }}>
                         <span className="card-brand">{ this.props.data.brand }</span>
                         <br/>
                         <br/>
-                        <span className="card-name">{ this.props.data.name }</span>
+                        <span className="card-name">{ this.props.data.title }</span>
                         <br/>
-                        <span className="card-price">{ this.props.data.price }</span>
+                        <span className="card-price">{ this.props.data.precio }</span>
                         <div className="set-card-margin-bottom">
-                            <Button type="success" className="pull-right falabella-btn">Agregar</Button>
+                            <Button type="success" className="pull-right falabella-btn" href={'http://www.falabella.com/' + this.props.data.url } >Agregar</Button>
                         </div>
                     </div>
                 </Card>

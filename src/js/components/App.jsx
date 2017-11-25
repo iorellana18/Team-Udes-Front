@@ -11,60 +11,54 @@ import { Layout } from 'element-react';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            aaa: {
-                bbb: [
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    },
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    },
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    },
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    },
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    },
-                    {
-                        img: 'http://falabella.scene7.com/is/image/Falabella/5034704?wid=249&hei=249&crop=0,0,0,0',
-                        brand: 'nikon',
-                        name: 'Lente Camara',
-                        price: '$599.000'
-                    }
-                ]
-            } 
+        this.state = {    
+            data: []
         }
     }
+    handleSearch(data) {
+        this.setState({ data: data });
+        console.log('Search', this.state.data, data);
+    }
+    handleImage(data) {
+        this.setState({ data: data });
+        console.log('Image', this.state.data, data);
+    }
     render() {
+        let items = [];
+        let car = [];
+        if (this.state.data.length == 0) {
+            items = (
+                <div align="center">
+                    <h3>Aplicacion para e-Hackaton</h3>
+                    <h5>Miembros</h5>
+                    <h6>- Katherine Liberona</h6>
+                    <h6>- Nestor Mora</h6>
+                    <h6>- Ian Orellana</h6>
+                    <h6>- Daniel Wladdimiro</h6>
+                    <h6>- Nicolas Vasquez</h6>
+                </div>
+            );
+            car = <Home></Home>;
+        } else {
+            car = null;
+            
+            items = this.state.data.map((item, index) => (
+                <Layout.Col span="6" key={index}>
+                    <ProductCard data={item}></ProductCard>
+                </Layout.Col>
+            ))
+        }
+        console.log(items);
         return (
             <div>
-                <Nav></Nav>
-                <Home></Home>
+                <Nav
+                    sendToApp = { this.handleSearch.bind(this) }
+                    sendImageUpload = { this.handleImage.bind(this) }
+                    >
+                </Nav>
+                { car }
                 <Layout.Col offset="2" span="20">
-                    { this.state.aaa.bbb.map((item, index) => (
-                        <Layout.Col span="6" key={index}>
-                            <ProductCard data={item}></ProductCard>
-                        </Layout.Col>
-                    )) }
+                    { items }
                 </Layout.Col>
                 <br/>
             </div>

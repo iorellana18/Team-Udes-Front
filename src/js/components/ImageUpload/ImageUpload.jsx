@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Upload, Dialog, Button } from 'element-react';
 
 export default class ImageUpload extends React.Component {
@@ -19,12 +20,16 @@ export default class ImageUpload extends React.Component {
     handlePreview(file) {
         console.log(file);
     }
-    handleBeforeUpload(state) {
-        console.log('UPLOAD');
+    handleBeforeUpload(file) {
+        console.log('UPLOAD', file);
     }
     submitUpload() {
         console.log('AAAA', this.state.fileList);
         this.refs.upload.submit();
+    }
+    handleSuccess(res) {
+        console.log('UPLOAD', res);
+        this.props.sendToNav(res);
     }
     render() {
         return (
@@ -37,6 +42,7 @@ export default class ImageUpload extends React.Component {
                     onPreview={file => this.handlePreview(file)}
                     onRemove={(file, fileList) => this.handleRemove(file, fileList)}
                     fileList={this.state.fileList}
+                    onSuccess={(response, file, fileList) => this.handleSuccess(response)}
                     autoUpload={false}
                     tip={<div className="el-upload__tip">Archivos jpg/png</div>}
                     trigger={<Button size="small" type="primary">Selecciona la imagen</Button>}
@@ -47,3 +53,7 @@ export default class ImageUpload extends React.Component {
         );
     }
 }
+
+ImageUpload.propTypes = {
+    sendToNav: PropTypes.func,
+};
