@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Search from '../Search/Search';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
@@ -14,8 +15,15 @@ export default class Nav extends React.Component {
             registerVisible: false
         };
     }
-    onSelect(){}
+    onSelect(){
 
+    }
+    handleSearch(data) {
+        this.props.sendToApp(data);
+    }
+    handleImage(data) {
+        this.props.sendImageUpload(data);
+    }
     render() {
         return (
     <div >
@@ -48,7 +56,7 @@ export default class Nav extends React.Component {
 <nav className="navbar navbar-light bg-light">
 
     <Layout.Col span="16"><div className="grid-content bg-purple">
-          <Search></Search>
+          <Search sendToNav={this.handleSearch.bind(this)}></Search>
     </div></Layout.Col>
 
     
@@ -68,10 +76,9 @@ export default class Nav extends React.Component {
     </Layout.Col>
     <Layout.Col span="2"><div className="grid-content bg-purple-light"></div></Layout.Col>
     <Layout.Col span="2"><div className="grid-content bg-purple-light">
-    
-        <Button type="success" onClick={ () => this.setState({ dialogVisible: true }) }>
-            <i className="fa fa-camera"></i>
-        </Button>
+            <Button type="success" onClick={ () => this.setState({ dialogVisible: true }) }>
+                &emsp;&emsp;<i className="fa fa-camera"></i>&emsp;&emsp;
+            </Button>
         {/* Upload Picture */}
         <Dialog
             title="¡Sube tu fotografía!"
@@ -81,7 +88,7 @@ export default class Nav extends React.Component {
             lockScroll={ false }
             >
             <Dialog.Body>
-                <ImageUpload></ImageUpload>
+                <ImageUpload sendToNav={ this.handleImage.bind(this) }></ImageUpload>
             </Dialog.Body>
 
         </Dialog>
@@ -118,3 +125,8 @@ export default class Nav extends React.Component {
         );
     }
 }
+
+Nav.propTypes = {
+    sendToApp: PropTypes.func,
+    sendImageUpload: PropTypes.func
+};
