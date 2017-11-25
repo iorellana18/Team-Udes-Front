@@ -11446,24 +11446,6 @@ ul li {
   line-height: 3em;
 }
 
-ul li:hover {
-  background: #cbcbcb;
-}
-
-.changeSize {
-  font-size: 10px;
-}
-
-.navbar {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.navbar-dark {
-  background-color: #333;
-}
-
 .set-card-margin-bottom {
   margin-bottom: 15px;
 }
@@ -11485,5 +11467,23 @@ img.center {
 .card-price {
   color: #e4022d;
   font-size: 20px;
+}
+
+ul li:hover {
+  background: #cbcbcb;
+}
+
+.changeSize {
+  font-size: 10px;
+}
+
+.navbar {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar-dark {
+  background-color: #333;
 }
 
