@@ -14,7 +14,7 @@ export const login = params => {
 }
 
 export const register = params => {
-    return axios.post(`${base}/register`, params, headers);
+    return axios.post(`${base}/user/`, params, headers);
 }
 
 export const falabella = params => {
