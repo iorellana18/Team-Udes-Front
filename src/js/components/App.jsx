@@ -59,10 +59,6 @@ export default class App extends React.Component {
             <div>
                 <Nav></Nav>
                 <Home></Home>
-                <ImageUpload></ImageUpload>
-                <Search></Search>
-                <Login></Login>
-                <Register></Register>
                 <Layout.Col offset="2" span="20">
                     { this.state.aaa.bbb.map((item, index) => (
                         <Layout.Col span="6" key={index}>
