@@ -58,7 +58,6 @@ export default class Home extends React.Component {
             <div>
                 <Nav></Nav>
                 <ImageUpload></ImageUpload>
-                <h1>HOLA</h1>
                 <Search></Search>
                 <Login></Login>
                 <Register></Register>
