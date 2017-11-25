@@ -15,6 +15,7 @@ export default class Nav extends React.Component {
     render() {
         return (
     <div >
+    
 <nav className="navbar navbar-dark bg-dark">
     <div >
           <span className="navbar-brand ml-0 mr-0 changeSize ">VENTA TELEFÓNICA &emsp;</span>
