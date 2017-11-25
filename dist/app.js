@@ -9716,7 +9716,9 @@ Login.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_index__ = __webpack_require__(85);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9724,6 +9726,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -9753,15 +9756,19 @@ var Register = function (_React$Component) {
     _createClass(Register, [{
         key: 'onSubmit',
         value: function onSubmit(state) {
-            Object(__WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* register */])(this.state.form).then(function (res) {
+            var _this2 = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_3__services_index__["b" /* register */])(this.state.form).then(function (res) {
                 console.log('register', res);
-                Message({
+                Object(__WEBPACK_IMPORTED_MODULE_1_element_react__["Message"])({
                     message: 'Bienvenido, te haz autentificado con exito.',
                     type: 'success'
                 });
+                _this2.props.close(true);
             }).catch(function (res) {
                 console.log('error register', res);
-                Message.error('Error al intentar ingresar en tu cuenta.');
+                __WEBPACK_IMPORTED_MODULE_1_element_react__["Message"].error('Error al intentar ingresar en tu cuenta.');
+                _this2.props.close(true);
             });
         }
     }, {
@@ -9769,6 +9776,11 @@ var Register = function (_React$Component) {
         value: function onChange(key, value) {
             this.state.form[key] = value;
             this.forceUpdate();
+        }
+    }, {
+        key: 'handleClose',
+        value: function handleClose() {
+            this.props.close(true);
         }
     }, {
         key: 'render',
@@ -9826,7 +9838,7 @@ var Register = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            null,
+                            { onClick: this.handleClose.bind(this) },
                             'Cancelar'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -9844,6 +9856,11 @@ var Register = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Register);
+
+
+Register.propTypes = {
+    close: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.func
+};
 
 /***/ }),
 /* 134 */
@@ -9913,6 +9930,7 @@ var ImageUpload = function (_React$Component) {
         value: function handleSuccess(res) {
             console.log('UPLOAD', res);
             this.props.sendToNav(res);
+            this.props.close(true);
         }
     }, {
         key: 'render',
@@ -9970,7 +9988,8 @@ var ImageUpload = function (_React$Component) {
 
 
 ImageUpload.propTypes = {
-    sendToNav: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func
+    sendToNav: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+    close: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func
 };
 
 /***/ }),
@@ -59291,6 +59310,16 @@ var Nav = function (_React$Component) {
             this.setState({ loginVisible: false });
         }
     }, {
+        key: 'handleRegisterClose',
+        value: function handleRegisterClose() {
+            this.setState({ registerVisible: false });
+        }
+    }, {
+        key: 'handleImageClose',
+        value: function handleImageClose() {
+            this.setState({ dialogVisible: false });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -59453,7 +59482,10 @@ var Nav = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_6_element_react__["Dialog"].Body,
                                     null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__ImageUpload_ImageUpload__["a" /* default */], { sendToNav: this.handleImage.bind(this) })
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__ImageUpload_ImageUpload__["a" /* default */], {
+                                        sendToNav: this.handleImage.bind(this),
+                                        close: this.handleImageClose.bind(this)
+                                    })
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -59487,7 +59519,7 @@ var Nav = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_6_element_react__["Dialog"].Body,
                                     null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Register_Register__["a" /* default */], null)
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Register_Register__["a" /* default */], { close: this.handleRegisterClose.bind(this) })
                                 )
                             )
                         )
@@ -89318,7 +89350,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
 var ProductCard = function (_React$Component) {
     _inherits(ProductCard, _React$Component);
 
@@ -89331,7 +89362,7 @@ var ProductCard = function (_React$Component) {
     _createClass(ProductCard, [{
         key: 'handleButton',
         value: function handleButton() {
-            window.location.replace('http://www.falabella.com/' + this.props.data.url);
+            //window.location.replace('http://www.falabella.com/' + this.props.data.url);        
         }
     }, {
         key: 'render',

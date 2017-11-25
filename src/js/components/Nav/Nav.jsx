@@ -27,6 +27,12 @@ export default class Nav extends React.Component {
     handleLoginClose() {
         this.setState({ loginVisible: false });
     }
+    handleRegisterClose() {
+        this.setState({ registerVisible: false });
+    }
+    handleImageClose() {
+        this.setState({ dialogVisible: false });
+    }
     render() {
         return (
             <div >
@@ -93,7 +99,11 @@ export default class Nav extends React.Component {
                             lockScroll={ false }
                             >
                             <Dialog.Body>
-                                <ImageUpload sendToNav={ this.handleImage.bind(this) }></ImageUpload>
+                                <ImageUpload
+                                    sendToNav={ this.handleImage.bind(this) }
+                                    close={ this.handleImageClose.bind(this) }
+                                    >
+                                </ImageUpload>
                             </Dialog.Body>
                         </Dialog>
                         {/* Login */}
@@ -117,7 +127,7 @@ export default class Nav extends React.Component {
                             lockScroll={ false }
                             >
                             <Dialog.Body>
-                                <Register></Register>
+                                <Register close={this.handleRegisterClose.bind(this)}></Register>
                             </Dialog.Body>
                         </Dialog>
                     </div>

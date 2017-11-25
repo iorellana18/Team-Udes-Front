@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input, Button, Form } from 'element-react';
+import { Input, Button, Form, Message } from 'element-react';
+import PropTypes from 'prop-types';
 import { register } from '../../services/index'
 
 export default class Register extends React.Component {
@@ -23,14 +24,19 @@ export default class Register extends React.Component {
                 message: 'Bienvenido, te haz autentificado con exito.',
                 type: 'success'
               });
+              this.props.close(true);
         }).catch((res) => {
             console.log('error register', res);
             Message.error('Error al intentar ingresar en tu cuenta.');
+            this.props.close(true);
         });
     }
     onChange(key, value) {
         this.state.form[key] = value;
         this.forceUpdate();
+    }
+    handleClose() {
+        this.props.close(true);
     }
     render() {
         return (
@@ -74,7 +80,7 @@ export default class Register extends React.Component {
                         </Input>
                     </Form.Item>
                     <Form.Item>
-                        <Button>Cancelar</Button>
+                        <Button onClick={this.handleClose.bind(this)}>Cancelar</Button>
                         <Button type="success" onClick={this.onSubmit.bind(this)}>Registrarse</Button>
                     </Form.Item>
                 </Form>
@@ -82,3 +88,7 @@ export default class Register extends React.Component {
         );
     }
 }
+
+Register.propTypes = {
+    close: PropTypes.func,
+};

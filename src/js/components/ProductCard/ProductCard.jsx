@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import { Card, Button } from 'element-react';
 
 export default class ProductCard extends React.Component {
@@ -7,7 +6,7 @@ export default class ProductCard extends React.Component {
         super(props);
     }
     handleButton() {
-        window.location.replace('http://www.falabella.com/' + this.props.data.url);        
+        //window.location.replace('http://www.falabella.com/' + this.props.data.url);        
     }
     render() {
         return (

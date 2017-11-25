@@ -30,6 +30,7 @@ export default class ImageUpload extends React.Component {
     handleSuccess(res) {
         console.log('UPLOAD', res);
         this.props.sendToNav(res);
+        this.props.close(true);
     }
     render() {
         return (
@@ -56,4 +57,5 @@ export default class ImageUpload extends React.Component {
 
 ImageUpload.propTypes = {
     sendToNav: PropTypes.func,
+    close: PropTypes.func
 };
