@@ -7,6 +7,8 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import {store} from './store/configure';
 import Home from './components/App'
 
+import 'element-theme-default';
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>
