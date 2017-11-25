@@ -6,6 +6,9 @@ export default class ProductCard extends React.Component {
     constructor(props) {
         super(props);
     }
+    handleButton() {
+        window.location.replace('http://www.falabella.com/' + this.props.data.url);        
+    }
     render() {
         return (
             <div>
@@ -19,7 +22,13 @@ export default class ProductCard extends React.Component {
                         <br/>
                         <span className="card-price">{ this.props.data.precio }</span>
                         <div className="set-card-margin-bottom">
-                            <Button type="success" className="pull-right falabella-btn" href={'http://www.falabella.com/' + this.props.data.url } >Agregar</Button>
+                            <Button
+                                type="success"
+                                className="pull-right"
+                                onClick={this.handleButton()}
+                                >
+                                Ver
+                            </Button>
                         </div>
                     </div>
                 </Card>

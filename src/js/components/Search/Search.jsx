@@ -11,16 +11,6 @@ export default class Search extends React.Component {
     }
     sendInformation(event){
         this.state.strquery = this.hasWhiteSpace(this.state.value);
-        // if(localStorage.token == null){
-        //     //api from Falabella
-        //     this.state.strquery = this.hasWhiteSpace(this.state.value)
-        //     //http://www.falabella.com/falabella-cl/search/?Ntt=jeans&format=json
-        //     falabella({query : this.state.strquery}).then((res) => {
-        //         //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList); 
-        //     }).catch((res) => {
-        //         console.log('ERROR RESULT', res);
-        //     })
-        // }
         search({ query : this.state.strquery }).then((res) => {
             console.log('BUSQUEDA', res);
             this.props.sendToNav(res.data);
@@ -47,21 +37,25 @@ export default class Search extends React.Component {
              }
         return stringFinal
     }
-
-
     onChange(key, value) {
         this.state[key] = value;
         this.forceUpdate();
-    }   
-
+    }
+    handleEnterKey(event) {
+        if(event.key == 'Enter') {
+            this.sendInformation(event);
+        }
+    }
     render() {
         return (
             <div align="center">
-
                 <Input placeholder="¿Qué buscas?"
-                value={this.state.value}
-                onChange={this.onChange.bind(this, 'value')}
-                append={<Button type="primary" icon="search" onClick={this.sendInformation.bind(this)}></Button>} />       
+                    value={this.state.value}
+                    onChange={this.onChange.bind(this, 'value')}
+                    onKeyPress={(event) => this.handleEnterKey(event)}
+                    append={
+                        <Button type="primary" icon="search" onClick={this.sendInformation.bind(this)}></Button>
+                    }/>       
               </div>
         );
     }
