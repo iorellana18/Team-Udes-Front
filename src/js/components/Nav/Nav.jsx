@@ -1,9 +1,14 @@
 import React from 'react';
-import {Menu} from 'element-react';
+import Search from '../Search/Search';
+import ImageUpload from '../ImageUpload/ImageUpload'
+import {Menu, Layout,Button,Dialog} from 'element-react';
 
 export default class Nav extends React.Component {
     constructor(props) {
         super(props);
+         this.state = {
+    dialogVisible: false
+  };
     }
     onSelect(){}
 
@@ -35,7 +40,38 @@ export default class Nav extends React.Component {
     
 
 </nav>
+<nav className="navbar navbar-light bg-light">
 
+    <Layout.Col span="16"><div className="grid-content bg-purple">
+          <Search></Search>
+    </div></Layout.Col>
+
+    
+
+    <Layout.Col span="4"><div className="grid-content bg-purple-light">
+            <span className="navbar-brand ml-3 mr-0 changeSizeBig ">
+            Inicia sesión&emsp;o&emsp;Registrate aquí
+            </span>
+    </div></Layout.Col>
+    <Layout.Col span="2"><div className="grid-content bg-purple-light"></div></Layout.Col>
+    <Layout.Col span="2"><div className="grid-content bg-purple-light">
+    
+    <Button type="success" icon="upload2" onClick={ () => this.setState({ dialogVisible: true }) }></Button>
+      <Dialog
+        title="¡Sube tu fotografía!"
+        size="tiny"
+        visible={ this.state.dialogVisible }
+        onCancel={ () => this.setState({ dialogVisible: false }) }
+        lockScroll={ false }
+      >
+        <Dialog.Body>
+          <ImageUpload></ImageUpload>
+        </Dialog.Body>
+
+      </Dialog>
+    </div></Layout.Col>
+
+</nav>
 
     </div>
         );

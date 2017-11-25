@@ -11477,10 +11477,27 @@ ul li:hover {
   font-size: 10px;
 }
 
+.changeSizeBig {
+  font-size: 1.0rem;
+}
+
 .navbar {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.navbar span {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /* default 0 */
+}
+
+.grid-content {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .navbar-dark {

@@ -57,10 +57,21 @@ ul li:hover {
 	
 font-size: 10px
 }
+.changeSizeBig{
+  font-size:  1.0rem;
+}
 .navbar{
 
-	justify-content: space-between; 
 
+	justify-content: space-between; 
+  span {
+  flex-grow: 1; /* default 0 */
+}
+
+}
+
+.grid-content{
+  justify-content: flex-end; 
 }
 .navbar-dark{
 	background-color: #333;
