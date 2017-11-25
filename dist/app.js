@@ -6140,6 +6140,7 @@ var _temp = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return register; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return falabella; });
+/* unused harmony export search */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
@@ -6163,6 +6164,11 @@ var register = function register(params) {
 
 var falabella = function falabella(params) {
     var query = "http://www.falabella.com/falabella-cl/search/?Ntt=" + params.query + "&format=json";
+    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(query, { params: {} }, headers);
+};
+
+var search = function search(params) {
+    var query = "http://ehackathon.usach.cl/api/search?q=" + params.query;
     return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(query, { params: {} }, headers);
 };
 
@@ -7333,9 +7339,7 @@ var Home = function (_React$Component) {
                 this.state.strquery = this.hasWhiteSpace(this.state.value);
                 //http://www.falabella.com/falabella-cl/search/?Ntt=jeans&format=json
                 Object(__WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* falabella */])({ query: this.state.strquery }).then(function (res) {
-                    //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList);
-
-
+                    //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList); 
                 }).catch(function (res) {
                     console.log('ERROR RESULT', res);
                 });
@@ -58933,9 +58937,11 @@ var App = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Search_Search__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ImageUpload_ImageUpload__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_react__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Login_Login__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Register_Register__ = __webpack_require__(434);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ImageUpload_ImageUpload__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_react__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_element_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58943,6 +58949,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -58958,7 +58966,9 @@ var Nav = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
 
         _this.state = {
-            dialogVisible: false
+            dialogVisible: false,
+            loginVisible: false,
+            registerVisible: false
         };
         return _this;
     }
@@ -59060,7 +59070,7 @@ var Nav = function (_React$Component) {
                     'nav',
                     { className: 'navbar navbar-light bg-light' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3_element_react__["Layout"].Col,
+                        __WEBPACK_IMPORTED_MODULE_5_element_react__["Layout"].Col,
                         { span: '16' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
@@ -59069,7 +59079,7 @@ var Nav = function (_React$Component) {
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3_element_react__["Layout"].Col,
+                        __WEBPACK_IMPORTED_MODULE_5_element_react__["Layout"].Col,
                         { span: '4' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
@@ -59077,26 +59087,44 @@ var Nav = function (_React$Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 { className: 'navbar-brand ml-3 mr-0 changeSizeBig ' },
-                                'Inicia sesi\xF3n\u2003o\u2003Registrate aqu\xED'
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_5_element_react__["Button"],
+                                    { type: 'text', onClick: function onClick() {
+                                            return _this2.setState({ loginVisible: true });
+                                        } },
+                                    'Inicia sesi\xF3n'
+                                ),
+                                '\u2003o\u2003',
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_5_element_react__["Button"],
+                                    { type: 'text', onClick: function onClick() {
+                                            return _this2.setState({ registerVisible: true });
+                                        } },
+                                    'Registrate aqu\xED'
+                                )
                             )
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3_element_react__["Layout"].Col,
+                        __WEBPACK_IMPORTED_MODULE_5_element_react__["Layout"].Col,
                         { span: '2' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-content bg-purple-light' })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_3_element_react__["Layout"].Col,
+                        __WEBPACK_IMPORTED_MODULE_5_element_react__["Layout"].Col,
                         { span: '2' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'grid-content bg-purple-light' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_element_react__["Button"], { type: 'success', icon: 'upload2', onClick: function onClick() {
-                                    return _this2.setState({ dialogVisible: true });
-                                } }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_3_element_react__["Dialog"],
+                                __WEBPACK_IMPORTED_MODULE_5_element_react__["Button"],
+                                { type: 'success', onClick: function onClick() {
+                                        return _this2.setState({ dialogVisible: true });
+                                    } },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-camera' })
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"],
                                 {
                                     title: '\xA1Sube tu fotograf\xEDa!',
                                     size: 'tiny',
@@ -59107,9 +59135,43 @@ var Nav = function (_React$Component) {
                                     lockScroll: false
                                 },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_element_react__["Dialog"].Body,
+                                    __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"].Body,
                                     null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ImageUpload_ImageUpload__["a" /* default */], null)
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ImageUpload_ImageUpload__["a" /* default */], null)
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"],
+                                {
+                                    title: 'Autentificate',
+                                    size: 'tiny',
+                                    visible: this.state.loginVisible,
+                                    onCancel: function onCancel() {
+                                        return _this2.setState({ loginVisible: false });
+                                    },
+                                    lockScroll: false
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"].Body,
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Login_Login__["a" /* default */], null)
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"],
+                                {
+                                    title: 'Registrate',
+                                    size: 'tiny',
+                                    visible: this.state.registerVisible,
+                                    onCancel: function onCancel() {
+                                        return _this2.setState({ registerVisible: false });
+                                    },
+                                    lockScroll: false
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_5_element_react__["Dialog"].Body,
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Register_Register__["a" /* default */], null)
                                 )
                             )
                         )
@@ -89001,13 +89063,13 @@ var Login = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            { type: 'primary', onClick: this.onSubmit.bind(this) },
-                            'Entrar'
+                            null,
+                            'Cancel'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            null,
-                            'Cancel'
+                            { type: 'success', onClick: this.onSubmit.bind(this) },
+                            'Entrar'
                         )
                     )
                 ),
@@ -89019,7 +89081,7 @@ var Login = function (_React$Component) {
     return Login;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Login);
+/* harmony default export */ __webpack_exports__["a"] = (Login);
 
 /***/ }),
 /* 434 */
@@ -89135,13 +89197,13 @@ var Register = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            { type: 'primary', onClick: this.onSubmit.bind(this) },
-                            'Registrarse'
+                            null,
+                            'Cancelar'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_1_element_react__["Button"],
-                            null,
-                            'Cancelar'
+                            { type: 'success', onClick: this.onSubmit.bind(this) },
+                            'Registrarse'
                         )
                     )
                 )
@@ -89152,7 +89214,7 @@ var Register = function (_React$Component) {
     return Register;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Register);
+/* harmony default export */ __webpack_exports__["a"] = (Register);
 
 /***/ }),
 /* 435 */
