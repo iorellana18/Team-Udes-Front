@@ -7,7 +7,10 @@ export default class ImageUpload extends React.Component {
         this.state = {
             dialogVisible: false,
             dialogImageUrl: '',
-            fileList: []
+            fileList: [],
+            requestHeader: {
+                Authorization: 'Bearer ' + localStorage.getItem('token') ? localStorage.getItem('token'): null,
+            }
         }
     }
     handleRemove(file, fileList) {
@@ -29,7 +32,8 @@ export default class ImageUpload extends React.Component {
                  <Upload
                     className="upload-demo"
                     ref="upload"
-                    action="//jsonplaceholder.typicode.com/posts/"
+                    header={this.state.requestHeader}
+                    action="http://ehackathon.usach.cl/api/img/analyze/"
                     onPreview={file => this.handlePreview(file)}
                     onRemove={(file, fileList) => this.handleRemove(file, fileList)}
                     fileList={this.state.fileList}

@@ -5,9 +5,10 @@ import Login from './Login/Login'
 import Register from './Register/Register'
 import ProductCard from './ProductCard/ProductCard'
 import ImageUpload from './ImageUpload/ImageUpload'
+import Home from './Home/Home'
 import { Layout } from 'element-react';
 
-export default class Home extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,15 +58,18 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Nav></Nav>
+                <Home></Home>
                 <ImageUpload></ImageUpload>
                 <Search></Search>
                 <Login></Login>
                 <Register></Register>
-                {this.state.aaa.bbb.map((item, index) => (
-                    <Layout.Col span="6" key={index}>
-                        <ProductCard data={item}></ProductCard>
-                    </Layout.Col>
-                ))}
+                <Layout.Col offset="2" span="20">
+                    { this.state.aaa.bbb.map((item, index) => (
+                        <Layout.Col span="6" key={index}>
+                            <ProductCard data={item}></ProductCard>
+                        </Layout.Col>
+                    )) }
+                </Layout.Col>
                 <br/>
             </div>
         );
