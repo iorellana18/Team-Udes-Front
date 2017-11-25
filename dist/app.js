@@ -3127,42 +3127,6 @@ exports.default = function (obj, key, value) {
 };
 
 /***/ }),
-<<<<<<< HEAD
-=======
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _src = __webpack_require__(105);
-
-Object.keys(_src).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _src[key];
-    }
-  });
-});
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-}();
-
-;
-
-
-/***/ }),
->>>>>>> borderNav
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7333,11 +7297,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(20);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(26);
->>>>>>> borderNav
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__(85);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -7873,11 +7833,7 @@ __webpack_require__(107)(String, 'String', function (iterated) {
 "use strict";
 
 var LIBRARY = __webpack_require__(69);
-<<<<<<< HEAD
 var $export = __webpack_require__(21);
-=======
-var $export = __webpack_require__(20);
->>>>>>> borderNav
 var redefine = __webpack_require__(110);
 var hide = __webpack_require__(31);
 var has = __webpack_require__(28);
@@ -9607,11 +9563,7 @@ var _temp = function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(20);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react__ = __webpack_require__(26);
->>>>>>> borderNav
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -9635,14 +9587,10 @@ var ImageUpload = function (_React$Component) {
         _this.state = {
             dialogVisible: false,
             dialogImageUrl: '',
-<<<<<<< HEAD
             fileList: [],
             requestHeader: {
                 Authorization:  true ? localStorage.getItem('token') : null
             }
-=======
-            fileList: []
->>>>>>> borderNav
         };
         return _this;
     }
@@ -9681,12 +9629,8 @@ var ImageUpload = function (_React$Component) {
                     {
                         className: 'upload-demo',
                         ref: 'upload',
-<<<<<<< HEAD
                         header: this.state.requestHeader,
                         action: 'http://ehackathon.usach.cl/api/img/analyze/',
-=======
-                        action: '//jsonplaceholder.typicode.com/posts/',
->>>>>>> borderNav
                         onPreview: function onPreview(file) {
                             return _this2.handlePreview(file);
                         },
@@ -9728,11 +9672,7 @@ var ImageUpload = function (_React$Component) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(134);
-<<<<<<< HEAD
 module.exports = __webpack_require__(444);
-=======
-module.exports = __webpack_require__(443);
->>>>>>> borderNav
 
 
 /***/ }),
@@ -9747,11 +9687,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_App__ = __webpack_require__(198);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_theme_default__ = __webpack_require__(437);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_theme_default__ = __webpack_require__(436);
->>>>>>> borderNav
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_element_theme_default___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_element_theme_default__);
 __webpack_require__(135);
 
@@ -58893,14 +58829,9 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Register_Register__ = __webpack_require__(434);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ProductCard_ProductCard__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ImageUpload_ImageUpload__ = __webpack_require__(132);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Home_Home__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_react__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_element_react__);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_element_react__);
->>>>>>> borderNav
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59003,11 +58934,7 @@ var App = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Search_Search__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ImageUpload_ImageUpload__ = __webpack_require__(132);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_react__ = __webpack_require__(20);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_react__ = __webpack_require__(26);
->>>>>>> borderNav
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_element_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_element_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -59416,11 +59343,7 @@ module.exports = document && document.documentElement;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(211);
-<<<<<<< HEAD
 var global = __webpack_require__(22);
-=======
-var global = __webpack_require__(21);
->>>>>>> borderNav
 var hide = __webpack_require__(31);
 var Iterators = __webpack_require__(40);
 var TO_STRING_TAG = __webpack_require__(17)('toStringTag');
@@ -59524,11 +59447,7 @@ module.exports = __webpack_require__(15).Symbol;
 var global = __webpack_require__(22);
 var has = __webpack_require__(28);
 var DESCRIPTORS = __webpack_require__(27);
-<<<<<<< HEAD
 var $export = __webpack_require__(21);
-=======
-var $export = __webpack_require__(20);
->>>>>>> borderNav
 var redefine = __webpack_require__(110);
 var META = __webpack_require__(217).KEY;
 var $fails = __webpack_require__(33);
@@ -60243,11 +60162,7 @@ module.exports = __webpack_require__(15).Object.setPrototypeOf;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
-<<<<<<< HEAD
 var $export = __webpack_require__(21);
-=======
-var $export = __webpack_require__(20);
->>>>>>> borderNav
 $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(232).set });
 
 
@@ -89322,7 +89237,6 @@ var ProductCard = function (_React$Component) {
 
 /***/ }),
 /* 436 */
-<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -89378,8 +89292,6 @@ var Home = function (_React$Component) {
 
 /***/ }),
 /* 437 */
-=======
->>>>>>> borderNav
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
