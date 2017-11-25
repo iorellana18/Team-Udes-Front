@@ -45,8 +45,8 @@ export default class Login extends React.Component {
                         </Input>
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" onClick={this.onSubmit.bind(this)}>Entrar</Button>
                         <Button>Cancel</Button>
+                        <Button type="success" onClick={this.onSubmit.bind(this)}>Entrar</Button>
                     </Form.Item>
                 </Form>
                 <br/>

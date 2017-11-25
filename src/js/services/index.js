@@ -21,3 +21,8 @@ export const falabella = params => {
 	let query = "http://www.falabella.com/falabella-cl/search/?Ntt="+params.query+"&format=json"
     return axios.get(query, {params:{}}, headers);
 }
+
+export const search = params => {
+    let query = "http://ehackathon.usach.cl/api/search?q="+params.query;
+    return axios.get(query, {params:{}}, headers);
+}

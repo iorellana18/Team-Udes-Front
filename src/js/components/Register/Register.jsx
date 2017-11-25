@@ -70,8 +70,8 @@ export default class Register extends React.Component {
                         </Input>
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" onClick={this.onSubmit.bind(this)}>Registrarse</Button>
                         <Button>Cancelar</Button>
+                        <Button type="success" onClick={this.onSubmit.bind(this)}>Registrarse</Button>
                     </Form.Item>
                 </Form>
             </div>

@@ -1,14 +1,18 @@
 import React from 'react';
 import Search from '../Search/Search';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
 import ImageUpload from '../ImageUpload/ImageUpload'
-import {Menu, Layout,Button,Dialog} from 'element-react';
+import { Menu, Layout, Button, Dialog } from 'element-react';
 
 export default class Nav extends React.Component {
     constructor(props) {
         super(props);
          this.state = {
-    dialogVisible: false
-  };
+            dialogVisible: false,
+            loginVisible: false,
+            registerVisible: false
+        };
     }
     onSelect(){}
 
@@ -49,28 +53,64 @@ export default class Nav extends React.Component {
 
     
 
-    <Layout.Col span="4"><div className="grid-content bg-purple-light">
+    <Layout.Col span="4">
+        <div className="grid-content bg-purple-light">
             <span className="navbar-brand ml-3 mr-0 changeSizeBig ">
-            Inicia sesión&emsp;o&emsp;Registrate aquí
+                <Button type="text" onClick={ () => this.setState({ loginVisible: true }) }>
+                    Inicia sesión
+                </Button>
+                &emsp;o&emsp;
+                <Button type="text" onClick={ () => this.setState({ registerVisible: true }) }>
+                    Registrate aquí
+                </Button>
             </span>
-    </div></Layout.Col>
+        </div>
+    </Layout.Col>
     <Layout.Col span="2"><div className="grid-content bg-purple-light"></div></Layout.Col>
     <Layout.Col span="2"><div className="grid-content bg-purple-light">
     
-    <Button type="success" icon="upload2" onClick={ () => this.setState({ dialogVisible: true }) }></Button>
-      <Dialog
-        title="¡Sube tu fotografía!"
-        size="tiny"
-        visible={ this.state.dialogVisible }
-        onCancel={ () => this.setState({ dialogVisible: false }) }
-        lockScroll={ false }
-      >
-        <Dialog.Body>
-          <ImageUpload></ImageUpload>
-        </Dialog.Body>
+        <Button type="success" onClick={ () => this.setState({ dialogVisible: true }) }>
+            <i className="fa fa-camera"></i>
+        </Button>
+        {/* Upload Picture */}
+        <Dialog
+            title="¡Sube tu fotografía!"
+            size="tiny"
+            visible={ this.state.dialogVisible }
+            onCancel={ () => this.setState({ dialogVisible: false }) }
+            lockScroll={ false }
+            >
+            <Dialog.Body>
+                <ImageUpload></ImageUpload>
+            </Dialog.Body>
 
-      </Dialog>
-    </div></Layout.Col>
+        </Dialog>
+        {/* Login */}
+        <Dialog
+            title="Autentificate"
+            size="tiny"
+            visible={ this.state.loginVisible }
+            onCancel={ () => this.setState({ loginVisible: false }) }
+            lockScroll={ false }
+            >
+            <Dialog.Body>
+                <Login></Login>
+            </Dialog.Body>
+        </Dialog>
+        {/* Register */}
+        <Dialog
+            title="Registrate"
+            size="tiny"
+            visible={ this.state.registerVisible }
+            onCancel={ () => this.setState({ registerVisible: false }) }
+            lockScroll={ false }
+            >
+            <Dialog.Body>
+                <Register></Register>
+            </Dialog.Body>
+        </Dialog>
+    </div>
+    </Layout.Col>
 
 </nav>
 

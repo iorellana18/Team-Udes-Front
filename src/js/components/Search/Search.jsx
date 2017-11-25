@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input,Button } from 'element-react';
-import { falabella } from '../../services/index'
+import { falabella, search } from '../../services/index'
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -14,10 +14,7 @@ export default class Home extends React.Component {
                 this.state.strquery = this.hasWhiteSpace(this.state.value)
                 //http://www.falabella.com/falabella-cl/search/?Ntt=jeans&format=json
                 falabella({query : this.state.strquery}).then((res) => {
-                    //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList);
-
-
-                    
+                    //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList); 
                 }).catch((res) => {
                     console.log('ERROR RESULT', res);
                 })
