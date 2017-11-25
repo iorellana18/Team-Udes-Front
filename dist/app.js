@@ -59169,45 +59169,7 @@ var App = function (_React$Component) {
             var items = [];
             var car = [];
             if (this.state.data.length == 0) {
-                items = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { align: 'center' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h3',
-                        null,
-                        'Aplicacion para e-Hackaton'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h5',
-                        null,
-                        'Miembros'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h6',
-                        null,
-                        '- Katherine Liberona'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h6',
-                        null,
-                        '- Nestor Mora'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h6',
-                        null,
-                        '- Ian Orellana'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h6',
-                        null,
-                        '- Daniel Wladdimiro'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h6',
-                        null,
-                        '- Nicolas Vasquez'
-                    )
-                );
+                items = null;
                 car = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Home_Home__["a" /* default */], null);
             } else {
                 car = null;

@@ -27,17 +27,7 @@ export default class App extends React.Component {
         let items = [];
         let car = [];
         if (this.state.data.length == 0) {
-            items = (
-                <div align="center">
-                    <h3>Aplicacion para e-Hackaton</h3>
-                    <h5>Miembros</h5>
-                    <h6>- Katherine Liberona</h6>
-                    <h6>- Nestor Mora</h6>
-                    <h6>- Ian Orellana</h6>
-                    <h6>- Daniel Wladdimiro</h6>
-                    <h6>- Nicolas Vasquez</h6>
-                </div>
-            );
+            items = null;
             car = <Home></Home>;
         } else {
             car = null;
