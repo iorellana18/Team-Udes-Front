@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input,Button } from 'element-react';
+import { falabella } from '../../services/index'
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -10,20 +11,20 @@ export default class Home extends React.Component {
     sendInformation(event){
             if(localStorage.token == null){
                 //api from Falabella
-                console.log('The link was clicked.');
-                
                 this.state.strquery = this.hasWhiteSpace(this.state.value)
-                console.log(this.state.strquery)
                 //http://www.falabella.com/falabella-cl/search/?Ntt=jeans&format=json
+                falabella({query : this.state.strquery}).then((res) => {
+                    //console.log('RESULT', res.data.contents["0"].mainSection[1].contents["0"].JSON.searchItemList.resultList);
+
+
+                    
+                }).catch((res) => {
+                    console.log('ERROR RESULT', res);
+                })
 
             }
             
-            console.log(this.state.value)
-    }
-    wordTreatment(){
-
-
-
+          
     }
 
     hasWhiteSpace(s) {

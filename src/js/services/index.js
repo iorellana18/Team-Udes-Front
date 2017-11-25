@@ -16,3 +16,8 @@ export const login = params => {
 export const register = params => {
     return axios.post(`${base}/register`, params, headers);
 }
+
+export const falabella = params => {
+	let query = "http://www.falabella.com/falabella-cl/search/?Ntt="+params.query+"&format=json"
+    return axios.get(query, {params:{}}, headers);
+}
