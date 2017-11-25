@@ -3053,3 +3053,11 @@
   clip: auto;
 }
 
+.header-black {
+  background-color: #333333;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+

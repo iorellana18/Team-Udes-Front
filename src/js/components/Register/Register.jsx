@@ -7,17 +7,19 @@ export default class Register extends React.Component {
         super(props);
         this.state = {
             form: {
-                firstname: '',
+                name: '',
                 lastname: '',
-                username: '',
+                email: '',
                 password: '',
-                password_validation: ''
+                password_validation: '',
+                user_type: 2
             }
         }
     }
     onSubmit(state) {
         register(this.state.form).then((res) => {
             console.log('register', res);
+
         }).catch((res) => {
             console.log('error register', res);
         })
@@ -32,8 +34,8 @@ export default class Register extends React.Component {
                 <Form model={this.state.form}>
                     <Form.Item label="Nombre">
                         <Input
-                            value={this.state.form.firstname}
-                            onChange={this.onChange.bind(this, 'firstname')}
+                            value={this.state.form.name}
+                            onChange={this.onChange.bind(this, 'name')}
                         >
                         </Input>
                     </Form.Item>
@@ -46,8 +48,8 @@ export default class Register extends React.Component {
                     </Form.Item>
                     <Form.Item label="Email">
                         <Input
-                            value={this.state.form.username}
-                            onChange={this.onChange.bind(this, 'username')}
+                            value={this.state.form.email}
+                            onChange={this.onChange.bind(this, 'email')}
                         >
                         </Input>
                     </Form.Item>
@@ -68,7 +70,7 @@ export default class Register extends React.Component {
                         </Input>
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary">Registrarse</Button>
+                        <Button type="primary" onClick={this.onSubmit.bind(this)}>Registrarse</Button>
                         <Button>Cancelar</Button>
                     </Form.Item>
                 </Form>
