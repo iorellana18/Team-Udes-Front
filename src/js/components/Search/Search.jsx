@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from './Search/Search'
+import { Input } from 'element-react';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -9,9 +9,10 @@ export default class Home extends React.Component {
     render() {
         return (
             <div align="center">
-                <h1>HOLA</h1>
-                <Search></Search>
-                <br/>
+                <Input
+                    icon="time"
+                    placeholder="¿Qué buscas?"
+                />
             </div>
         );
     }
