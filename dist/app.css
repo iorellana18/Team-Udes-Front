@@ -11464,3 +11464,26 @@ ul li:hover {
   background-color: #333;
 }
 
+.set-card-margin-bottom {
+  margin-bottom: 15px;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.card-brand {
+  color: rgba(142, 133, 133, 0.6);
+  font-size: 16px;
+}
+
+.card-name {
+  font-size: 20px;
+}
+
+.card-price {
+  color: #e4022d;
+  font-size: 20px;
+}
+
