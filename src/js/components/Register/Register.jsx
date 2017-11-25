@@ -19,10 +19,14 @@ export default class Register extends React.Component {
     onSubmit(state) {
         register(this.state.form).then((res) => {
             console.log('register', res);
-
+            Message({
+                message: 'Bienvenido, te haz autentificado con exito.',
+                type: 'success'
+              });
         }).catch((res) => {
             console.log('error register', res);
-        })
+            Message.error('Error al intentar ingresar en tu cuenta.');
+        });
     }
     onChange(key, value) {
         this.state.form[key] = value;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Form } from 'element-react';
+import { Input, Button, Form, Message } from 'element-react';
 import { login } from '../../services/index'
 
 export default class Login extends React.Component {
@@ -17,8 +17,13 @@ export default class Login extends React.Component {
         login(this.state.form).then((res) => {
             console.log('LOGIN', res);
             localStorage.setItem('token', res.data.token);
+            Message({
+                message: 'Bienvenido, te haz autentificado con exito.',
+                type: 'success'
+              });
         }).catch((res) => {
             console.log('ERROR LOGIN', res);
+            Message.error('Error al intentar ingresar en tu cuenta.');
         })
     }
     onChange(key, value) {

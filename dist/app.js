@@ -9622,8 +9622,13 @@ var Login = function (_React$Component) {
             Object(__WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* login */])(this.state.form).then(function (res) {
                 console.log('LOGIN', res);
                 localStorage.setItem('token', res.data.token);
+                Object(__WEBPACK_IMPORTED_MODULE_1_element_react__["Message"])({
+                    message: 'Bienvenido, te haz autentificado con exito.',
+                    type: 'success'
+                });
             }).catch(function (res) {
                 console.log('ERROR LOGIN', res);
+                __WEBPACK_IMPORTED_MODULE_1_element_react__["Message"].error('Error al intentar ingresar en tu cuenta.');
             });
         }
     }, {
@@ -9731,8 +9736,13 @@ var Register = function (_React$Component) {
         value: function onSubmit(state) {
             Object(__WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* register */])(this.state.form).then(function (res) {
                 console.log('register', res);
+                Message({
+                    message: 'Bienvenido, te haz autentificado con exito.',
+                    type: 'success'
+                });
             }).catch(function (res) {
                 console.log('error register', res);
+                Message.error('Error al intentar ingresar en tu cuenta.');
             });
         }
     }, {
